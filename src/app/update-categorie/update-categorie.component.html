@@ -1,0 +1,13 @@
+<form (ngSubmit)="saveCategorie()">
+    <div [hidden]="ajout">
+      <label>ID Ligue</label>
+      <input type="text" [(ngModel)]="categorie.idCat" name="idLigue" class="form-control w-25" readonly>
+    </div>
+    <div>
+      <label>Nom Ligue</label>
+      <input type="text" [(ngModel)]="categorie.nomCat" name="nomLigue" class="form-control" placeholder="Entrez un nom de catégorie..." required>
+    </div>
+    <div class="mt-2">
+      <button type="submit" class="btn btn-success">{{ ajout ? 'Ajouter' : 'Modifier' }}</button>
+    </div>
+  </form>

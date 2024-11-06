@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+        <app-update-categorie  
+            [categorie]="updatedCat" 
+            [ajout]="ajout"
+            (categorieUpdated)="categorieUpdated($event)">
+        </app-update-categorie> 
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom Catégorie</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Si la liste est vide, afficher un message -->
+                    <tr *ngIf="categories.length === 0">
+                        <td colspan="3">Aucune catégorie trouvée.</td>
+                    </tr>
+
+                    <!-- Sinon, afficher les catégories -->
+                    <tr *ngFor="let cat of categories">
+                        <td>{{ cat.idCat }}</td>
+                        <td>{{ cat.nomCat }}</td>
+                        <td>
+                            <a class="btn btn-success" (click)="updateCat(cat)">Éditer</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

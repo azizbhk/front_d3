@@ -1,0 +1,40 @@
+<div class="container">
+    <div>
+        <h2>Ajouter un voyage :</h2>
+    </div>
+    <form>
+        <div hidden class="col-sm-2 col-md-2 col-lg-2">
+            <label>ID voyage</label>
+            <input readonly type="number" [(ngModel)]="newvoyage.idvoyage" name="idvoyage" class="form-control">
+
+             
+        </div>
+        
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Nom voyage</label>
+            
+             <input type="text" [(ngModel)]="newvoyage.nomvoyage" name="nomvoyage" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Prix voyage</label>
+           
+                          <input type="number" [(ngModel)]="newvoyage.prixvoyage" name="prixvoyage" class="form-control">
+         </div>
+          <div class="col-sm-4 col-md-4 col-lg-4"> 
+            <label>Date création</label> 
+             <input type="date" [(ngModel)]="newvoyage.dateCreation" name="dateCreation" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Categorie</label>
+            <select class="form-control form-control-lg" id="idCat" name="idCat"
+            [(ngModel)]="newIdCat">
+             <option *ngFor="let cat of categories" [value]="cat.idCat" >
+             {{cat.nomCat}}
+            </option>
+            </select>
+            </div>
+        <div class="mt-2">
+            <button type="submit" (click)="addvoyage()" class="btn btn-success">Ajouter</button>
+        </div>
+    </form>
+</div>

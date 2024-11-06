@@ -1,0 +1,38 @@
+<div class="container">
+    <!-- Dropdown pour la sélection des catégories -->
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+        <label>Catégories</label>
+        <select class="form-control form-control-lg" id="idcategorie" name="idcategorie" [(ngModel)]="IdCategorie" (change)="onChange()"> 
+            <option *ngFor="let cat of categories" [value]="cat.idCat">
+                {{cat.nomCat}}
+            </option>
+        </select> 
+    </div>
+
+    <!-- Table de voyages -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nom</th> 
+                        <th>Prix</th> 
+                        <th>Date Création</th>
+                        <th>Catégorie</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Boucle *ngFor pour afficher les voyages -->
+                    <tr *ngFor="let voyage of voyages">
+                        <td>{{voyage.idvoyage}}</td>
+                        <td>{{voyage.nomvoyage}}</td>
+                        <td>{{voyage.prixvoyage}}</td>
+                        <td>{{voyage.dateCreation | date:'dd/MM/yyyy'}}</td>
+                        <td>{{voyage.categorie.nomCat}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

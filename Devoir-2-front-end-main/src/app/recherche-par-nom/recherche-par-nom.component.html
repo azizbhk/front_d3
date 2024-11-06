@@ -1,0 +1,23 @@
+<div class="container">
+    <form class="form-inline"> <div class="form-group mx-sm-3 mb-2 mt-2 "> 
+        <label>Nom voyage en tapant</label> 
+         <input #nom [(ngModel)]="searchTerm" name="searchTerm" class="form-control" > 
+     </div>
+     </form>
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped">
+    <tr> <th>Id</th><th>Nom</th> <th>prix</th> <th>Date Création</th><th>categorie </tr>
+    <tbody *ngFor="let voyage of voyages | searchFilter: searchTerm ">    <tr >
+    <td>{{voyage.idvoyage}}</td>
+    <td>{{voyage.nomvoyage}}</td>
+    <td>{{voyage.prixvoyage}}</td>
+ <td>{{voyage.dateCreation | date:'dd/MM/yyyy'}}</td> 
+    <td>{{voyage.categorie.nomCat}}</td>
+   
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
